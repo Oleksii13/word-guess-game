@@ -1,11 +1,44 @@
 var userText = document.getElementById("text");
-var words = ["madonna", "bieber","queen","lenon"];
+var words = ["hitler", "kungfury","hackerman","barbariana","triceracop","thor"];
 var wins = 0;
 var guessRemain = 5;
 var letterGuess = "";
 var letterSmall = "";
+
+var imageArray = ["assets/images/hitlerSmall.jpg","assets/images/kungfurySmall.jpg","assets/images/hackermanSmall.jpg",
+  "assets/images/barbarianaSmall.jpg","assets/images/triceracopSmall.jpg","assets/images/thorSmall.jpg"];
+
+  var myImage=document.getElementById("image");
+  // .src = imageArray[indexWord].src;
+
+// var imgArray = new Array();
+
+// imgArray[0] = new Image();
+// imgArray[0].src = 'assets/images/hitlerSmall.jpg';
+
+// imgArray[1] = new Image();
+// imgArray[1].src = 'assets/images/kungfurySmall.jpg';
+
+// imgArray[2] = new Image();
+// imgArray[2].src = 'assets/images/hackermanSmall.jpg';
+
+// imgArray[3] = new Image();
+// imgArray[3].src = 'assets/images/barbarianaSmall.jpg';
+
+// imgArray[4] = new Image();
+// imgArray[4].src = 'assets/images/triceracopSmall.jpg';
+
+// imgArray[5] = new Image();
+// imgArray[5].src = 'assets/images/thorSmall.jpg';
+
+
+
+
 var word = randomWord();
 var dashWord = dashedWord(word);
+
+
+
 
 screenText();
 
@@ -38,7 +71,11 @@ function press(event) {
 }
 
 function randomWord() {
-  var randomWord = words[Math.floor(Math.random() * words.length)].split("");
+  var randomWord = words[Math.floor(Math.random() * words.length)];
+ var imageIndex=words.indexOf(randomWord);
+ myImage.setAttribute("src",imageArray[imageIndex]);
+ 
+  randomWord=randomWord.split("")
   return randomWord;
 }
 
