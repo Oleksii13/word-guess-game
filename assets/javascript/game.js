@@ -35,9 +35,7 @@ function press(event) {
     guessRemain = 5;
     screenText();
   }
-  
 }
-
 
 function randomWord() {
   var randomWord = words[Math.floor(Math.random() * words.length)].split("");
@@ -78,15 +76,15 @@ function indexFunct(choose) {
   }
 }
 
-function screenText(){
+function screenText() {
   userText.innerHTML =
-      "<h1>Press any key to get started!</h1><br><p>Wins: " +
-      wins +
-      "</p><br><p>Guess Remaining: " +
-      guessRemain +
-      "</p><br><p>Letters guessed: " +
-      letterGuess +
-      "</p><br><p>The word is: " +
-      dashWord +
-      "</p><br><p></p>";
+    "<h1>Press any key to get started!</h1><br><p>Wins: " +
+    wins +
+    "</p><br><p>Guess Remaining: " +
+    guessRemain +
+    "</p><br><p>Letters guessed: " +
+    letterGuess +
+    "</p><br><p>The word is: " +
+    dashWord +
+    "</p><br><p></p>";
 }
