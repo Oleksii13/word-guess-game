@@ -1,5 +1,5 @@
 var userText = document.getElementById("text");
-var words = ["madonna", "bieber"];
+var words = ["madonna", "bieber","queen","lenon"];
 var wins = 0;
 var guessRemain = 5;
 var letterGuess = "";
