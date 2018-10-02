@@ -9,30 +9,6 @@ var imageArray = ["assets/images/hitlerSmall.jpg","assets/images/kungfurySmall.j
   "assets/images/barbarianaSmall.jpg","assets/images/triceracopSmall.jpg","assets/images/thorSmall.jpg"];
 
   var myImage=document.getElementById("image");
-  // .src = imageArray[indexWord].src;
-
-// var imgArray = new Array();
-
-// imgArray[0] = new Image();
-// imgArray[0].src = 'assets/images/hitlerSmall.jpg';
-
-// imgArray[1] = new Image();
-// imgArray[1].src = 'assets/images/kungfurySmall.jpg';
-
-// imgArray[2] = new Image();
-// imgArray[2].src = 'assets/images/hackermanSmall.jpg';
-
-// imgArray[3] = new Image();
-// imgArray[3].src = 'assets/images/barbarianaSmall.jpg';
-
-// imgArray[4] = new Image();
-// imgArray[4].src = 'assets/images/triceracopSmall.jpg';
-
-// imgArray[5] = new Image();
-// imgArray[5].src = 'assets/images/thorSmall.jpg';
-
-
-
 
 var word = randomWord();
 var dashWord = dashedWord(word);
