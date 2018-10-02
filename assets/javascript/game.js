@@ -2,19 +2,91 @@ var userText = document.getElementById("text");
 var words = ["madonna", "bieber"];
 var wins = 0;
 var guessRemain = 5;
-var letterGuessed;
+var letterGuess = "";
+var letterSmall = "";
+var word = randomWord();
+var dashWord = dashedWord(word);
 
-var object = {};
+screenText();
 
-function randomWorld() {
-  var randomWorld = words[Math.floor(Math.random() * words.length)];
-  return randomWorld;
+document.onkeyup = press;
+
+function press(event) {
+  var choose = event.key;
+  guessed(choose);
+
+  if (guessRemain > 0) {
+    screenText();
+    var winner = dashWord.indexOf("_");
+    if (winner == -1) {
+      wins++;
+      word = randomWord();
+      dashWord = dashedWord(word);
+      letterGuess = "";
+      letterSmall = "";
+      guessRemain = 5;
+      screenText();
+    }
+  } else if (guessRemain == 0) {
+    word = randomWord();
+    dashWord = dashedWord(word);
+    letterGuess = "";
+    letterSmall = "";
+    guessRemain = 5;
+    screenText();
+  }
+  
+}
+
+
+function randomWord() {
+  var randomWord = words[Math.floor(Math.random() * words.length)].split("");
+  return randomWord;
 }
 
 function dashedWord(word) {
-  var amountChar = word.length;
   var dashWord = [];
   for (i = 0; i < word.length; i++) {
     dashWord[i] = "_";
   }
+  return dashWord;
+}
+
+function guessed(choose) {
+  var check = letterSmall.indexOf(choose);
+
+  if (check == -1) {
+    letterSmall = letterSmall.concat(choose, " ");
+    var upperChoose = choose.toUpperCase();
+    letterGuess = letterGuess.concat(upperChoose, " ");
+    indexFunct(choose);
+  }
+}
+
+function indexFunct(choose) {
+  var index = word.indexOf(choose);
+
+  if (index >= 0) {
+    for (i = 0; i < word.length; i++) {
+      if (word[i] == choose) {
+        dashWord[i] = choose;
+        word[i] = " ";
+      }
+    }
+  } else {
+    guessRemain--;
+  }
+}
+
+function screenText(){
+  userText.innerHTML =
+      "<h1>Press any key to get started!</h1><br><p>Wins: " +
+      wins +
+      "</p><br><p>Guess Remaining: " +
+      guessRemain +
+      "</p><br><p>Letters guessed: " +
+      letterGuess +
+      "</p><br><p>The word is: " +
+      dashWord +
+      "</p><br><p></p>";
 }
