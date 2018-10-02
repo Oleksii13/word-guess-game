@@ -18,6 +18,10 @@ body {
   align-items: center;
   
 }
+img {
+  opacity: 0.9;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
 
 #text{
     color:white;
