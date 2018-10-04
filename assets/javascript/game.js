@@ -108,6 +108,6 @@ function screenText() {
     "</p><br><p>Letters guessed: " +
     letterGuess +
     "</p><br><p>The word is: " +
-    dashWord +
+    dashWord.join(" ") +
     "</p><br><p></p>";
 }
